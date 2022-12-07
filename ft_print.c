@@ -4,7 +4,7 @@ void	ft_newprint(char c, long long arg, size_t *i, size_t *compteur)
 {
 	*i += 2;
 
-	if (c == 'd')
+	if (c == 'd' || c == 'i')
 	{
 		ft_putnbr((int)arg);
 		*compteur += ft_wordzt((int)arg);
@@ -42,7 +42,8 @@ int	ft_print(char *str, ...)
 	count = 0;
 	i = 0;
 	va_start(arg,str);
-
+	
+	// changer la condition pour backslash
 	if (str[i] == '%' && str[i + 1] != '%')
 	{	
 		// print i 
@@ -70,5 +71,7 @@ int main()
 	ft_print("%s","bastien");
 	ft_print("\n");
 	ft_print("%s",'\0');
+	ft_print("\n");
+	ft_print("%i", 8);
 	return (0);
 }
