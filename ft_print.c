@@ -7,7 +7,7 @@ void	ft_newprint(char c, long long arg, size_t *i, size_t *compteur)
 	if (c == 'd')
 	{
 		ft_putnbr((int)arg);
-		// *compteur += printf("%zu",ft_wordzt((int)arg));
+		*compteur += ft_wordzt((int)arg);
 	}
 		// putnbr
 		// numbercount
@@ -45,7 +45,9 @@ int	ft_print(char *str, ...)
 
 	if (str[i] == '%' && str[i + 1] != '%')
 	{	
+		// print i 
 		ft_newprint(str[i + 1], va_arg(arg, long long), &i, &count);
+		// print i (pas de changement si pas dadresse idem count )
 	}
 	else
 	{
@@ -54,14 +56,19 @@ int	ft_print(char *str, ...)
 		count++;
 	}
 	va_end(arg);
+	// printf("%zu\n",count);
 	return (count);
 }
 int main()
 {
 	ft_print("%d\n",200);
+	ft_print("\n");
 	ft_print("%c\n",'a');
-	ft_print("%%/n");
-	ft_print("%s\n","bastien");
-	ft_print("%s\n",'\0');
+	ft_print("\n");
+	ft_print("%%");
+	ft_print("\n");
+	ft_print("%s","bastien");
+	ft_print("\n");
+	ft_print("%s",'\0');
 	return (0);
 }
