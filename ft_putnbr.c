@@ -6,28 +6,28 @@
 /*   By: bloisel <bloisel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 12:47:27 by bloisel           #+#    #+#             */
-/*   Updated: 2022/12/09 13:30:17 by bloisel          ###   ########.fr       */
+/*   Updated: 2022/12/09 16:13:32 by bloisel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-size_t ft_word(int nb)
+size_t	ft_word(int nb)
 {
-        size_t i;
+	size_t	i;
 
-        i = 0;
-        if (nb < 0)
-        {
-                i = 1;
-                nb *= -1;
-        }
-        while (nb > 9)
-        {
-                i++;
-                nb = nb / 10;
-        }
-        i++;
-        return (i);
+	i = 0;
+	if (nb < 0)
+	{
+		i = 1;
+		nb *= -1;
+	}
+	while (nb > 9)
+	{
+		i++;
+		nb = nb / 10;
+	}
+	i++;
+	return (i);
 }
 
 size_t	ft_putnbr(int nb)
