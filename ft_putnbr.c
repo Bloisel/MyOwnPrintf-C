@@ -6,10 +6,9 @@
 /*   By: bloisel <bloisel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 12:47:27 by bloisel           #+#    #+#             */
-/*   Updated: 2022/12/08 18:16:06 by bloisel          ###   ########.fr       */
+/*   Updated: 2022/12/09 13:30:17 by bloisel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "ft_printf.h"
 
 size_t ft_word(int nb)
