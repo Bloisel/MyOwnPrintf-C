@@ -27,15 +27,8 @@ void	ft_newprint(char c, long long arg, size_t *i, size_t *compteur)
 	}
 	if (c == 'p')
 	{
-		if ((unsigned long long)arg == 0)
-		{
-			*compteur += ft_putstr("(nil)");
-		}
-		else
-		{
-			*compteur += ft_putstr("0x");
-			*compteur += ft_putnbr_base2((unsigned long long)arg,"0123456789abcdef");
-		}
+		*compteur += ft_putstr("0x");
+		*compteur += ft_putnbr_base2((unsigned long long)arg,"0123456789abcdef");
 	}
 	
 }
@@ -51,9 +44,15 @@ int	ft_printf(const char *str, ...)
 	va_start(arg,str);
 	while (str[i])
 	{	
-		if (str[i] == '%' && str[i + 1] != 0)
-		{	
+		if (str[i] == '%' && (str[i + 1] == 'c' || str[i + 1] == 'd' || 
+		str[i + 1] == 'p'|| str[i + 1] == 'x' || str[i + 1] == 'X'|| 
+		str[i + 1] == 'i'|| str[i + 1] == 's' || str[i + 1] == 'u'))				
 			ft_newprint(str[i + 1], va_arg(arg, long long), &i, &count);
+		else if (str[i] == '%' && str[i + 1] == '%')
+		{
+			write(1, "%",1);
+			i += 2;
+			count++;
 		}
 		else
 		{
@@ -63,8 +62,18 @@ int	ft_printf(const char *str, ...)
 		}
 	}
 	va_end(arg);
+	// printf("%zu\n",count);
 	return (count);
 }
+
+
+// int main()
+// {
+// 	ft_printf("%u", 2);
+// }
+// 	printf("%p %p", 0, 0);
+// 	//ft_printf("\n");
+// 	//ft_printf("%d",200);
 
 //int main()
 //{
